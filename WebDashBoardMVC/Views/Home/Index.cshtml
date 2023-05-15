@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Выберите файл</title>
+</head>
+<body>
+    <h1>Выбор файла</h1>
+    @using(Html.BeginForm("Import", "Employe", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Raw(ViewBag.Error)
+        <span>Excel file</span> 
+        <input type="file" name="excelfile" />
+        <br />
+        <input type="submit" value="Загрузить" />
+    }
+</body>
+</html>
