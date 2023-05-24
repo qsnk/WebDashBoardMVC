@@ -1,13 +1,13 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using _Excel = Microsoft.Office.Interop.Excel;
-using static WebDashBoardMVC.Views.Home.Excel;
+using static WebDashBoardMVC.Excel;
 
 
-namespace WebDashBoardMVC.Views.Home
+namespace WebDashBoardMVC
 {
-    public class Excel: IDisposable
+    public class Excel : IDisposable
     {
-        _Application excel = new _Excel.Application();
+        _Application excel = new Application();
         private string file_path;
         private Workbook workbook;
         private Worksheet worksheet;
@@ -53,12 +53,11 @@ namespace WebDashBoardMVC.Views.Home
             try
             {
                 Workbook.Close(file_path);
-                this.excel.Quit();
+                excel.Quit();
 
             }
             catch (Exception)
             {
-
                 throw;
             }
 

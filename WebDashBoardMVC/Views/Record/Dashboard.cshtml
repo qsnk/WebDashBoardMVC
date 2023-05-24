@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="wwwroot\css\site.css" rel="stylesheet" type="text/css" />
+    <title>Dashboard</title>
+    
+</head>
+<body>
+    <h1>
+        Dashboard
+    </h1>
+    <h2>Поиск сотрудника</h2>
+    <div class="align-content-center">
+        <form method="post" asp-action="BuildGraphic" asp-controller="RecordController">
+              <input type="text" name="searchString" />
+              <input type="submit" value="Построить график" />
+        </form>
+    </div>
+    
+</body>
+</html>

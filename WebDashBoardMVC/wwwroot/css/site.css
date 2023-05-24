@@ -16,3 +16,33 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+table {
+    text-align: center;
+    vertical-align: middle;
+    margin: 20px;
+    padding:10px;
+}
+
+.tabledata {
+    text-align:center;
+    vertical-align:middle;
+    margin:20px;
+}
+
+.tabledata tr {
+    padding:10px;
+}
+
+.tabledata tr td {
+    font-size:20px;
+}
+
+.tabletitle {
+    background: gray;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 20px;
+}

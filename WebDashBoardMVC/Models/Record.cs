@@ -2,7 +2,12 @@
 {
     public class Record
     {
-        public Employe Employe { get; set; }
+        public int Id { get; set; }
+        public string? OfficeName { get; set; }
+        public string? EmployeName { get; set; }
         public DateTime Date { get; set; }
+        public int ClientsNumber { get; set; }
+        public int ClientsCalls { get; set; }
+        public int ClientsMeets { get; set; }
     }
 }

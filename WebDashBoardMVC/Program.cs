@@ -1,8 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using WebDashBoardMVC.Models;
+using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+//builder.Services.AddDbContext<RecordContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -19,6 +27,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+//Database.SetInitializer(new RecordDbInitializer());
 
 app.MapControllerRoute(
     name: "default",

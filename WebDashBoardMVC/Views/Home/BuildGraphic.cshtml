@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "BuildGraphic";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BuildGraphic</title>
+    
+</head>
+<body>
+    <h1>@ViewBag.Recs[0].EmployeName</h1>
+    <div style="display:flex; margin:5px;">
+        <div style="margin:5px;">
+            <canvas id="lineChart1" style="max-width:500px;max-height:400px" width="500px" height="400px"></canvas>
+        </div>
+        <div style="margin:5px;">
+            <canvas id="lineChart2" style="max-width:500px;max-height:400px;" width="500px" height="400px"></canvas>
+        </div>
+        
+    </div>
+    <div style="margin:5px;">
+        <canvas id="doughnutChart" style="max-width:500px;max-height:400px;" width="500px" height="400px"></canvas>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Получите данные для диаграммы из вашей модели или другого источника
+        var labels = @Html.Raw(Json.Serialize(ViewBag.Date));
+        var data = @Html.Raw(Json.Serialize(ViewBag.Data1));
+
+        // Создайте контекст и настройки для диаграммы
+        var ctx = document.getElementById('lineChart1');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '% отношения встреч к звонкам',
+                    data: data,
+                    borderColor: 'blue',
+                    fill: true
+                }]
+            },
+            options: {
+                // Настройки диаграммы
+            }
+        });
+    </script>
+    <script>
+        // Получите данные для диаграммы из вашей модели или другого источника
+        var labels = @Html.Raw(Json.Serialize(ViewBag.Date));
+        var data = @Html.Raw(Json.Serialize(ViewBag.Data2));
+
+        // Создайте контекст и настройки для диаграммы
+        var ctx = document.getElementById('lineChart2');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '% отношения звонков к клиентам',
+                    data: data,
+                    borderColor: 'red',
+                    fill: true
+                }]
+            },
+            options: {
+                // Настройки диаграммы
+            }
+        });
+    </script>
+    <script>
+        // Получите данные для диаграммы из вашей модели или другого источника
+        var labels = @Html.Raw(Json.Serialize(ViewBag.Date));
+        var data = @Html.Raw(Json.Serialize(ViewBag.Data3));
+
+        // Создайте контекст и настройки для диаграммы
+        var ctx = document.getElementById('doughnutChart');
+        var chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Количество клиентов к звонкам',
+                    data: data,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                // Настройки диаграммы
+            }
+        });
+    </script>
+</body>
+</html>
